@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "idUsuario": 2,
+        "avatar": "assets/images/mulher.png",
+        "usuario": "Ana Paula",
+        "rating": 1.0,
+        "comentario": "Loheaue  ehaeh  euah e aeua e aeáekf p qmwj wio ehauhe efe.",
+        "data": "29/04/2023"
+    },
+    {
+        "id": 2,
+        "idUsuario": 3,
+        "avatar": "assets/images/homem.png",
+        "usuario": "Antônio Pedro",
+        "rating": 3.0,
+        "comentario": "Loheaue  ehaeh  euah e aeua e aeáekf p qmwj wio ehauhe efe.",
+        "data": "10/05/2023"
+    },
+    {
+        "id": 3,
+        "idUsuario": 4,
+        "avatar": "assets/images/homem.png",
+        "usuario": "Zeus da Cruz",
+        "rating": 4.0,
+        "comentario": "Loheaue  ehaeh  euah e aeua e aeáekf p qmwj wio ehauhe efe.",
+        "data": "16/05/2023"
+    },
+    {
+        "id": 5,
+        "idUsuario": 5,
+        "avatar": "assets/images/mulher.png",
+        "usuario": "Gioconda Garcia",
+        "rating": 5.0,
+        "comentario": "Loheaue  ehaeh  euah e aeua e aeáekf p qmwj wio ehauhe efe.",
+        "data": "21/03/2023"
+    }
+]

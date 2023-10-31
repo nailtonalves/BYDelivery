@@ -1,0 +1,30 @@
+[
+    {
+        "id": 2,
+        "avatar": "assets/images/mulher.png",
+        "nome": "Ana Paula",
+        "email": "anapaula@gmail.com",
+        "senha": "8D969EEF6ECAD3C29A3A629280E686CF0C3F5D5A86AFF3CA12020C923ADC6C92"
+    },
+    {
+        "id": 3,
+        "avatar": "assets/images/homem.png",
+        "nome": "Antônio Pedro",
+        "email": "antonio@gmail.com",
+        "senha": "8D969EEF6ECAD3C29A3A629280E686CF0C3F5D5A86AFF3CA12020C923ADC6C92"
+    },
+    {
+        "id": 4,
+        "avatar": "assets/images/homem.png",
+        "nome": "Zeus da Cruz",
+        "email": "zeus@gmail.com",
+        "senha": "8D969EEF6ECAD3C29A3A629280E686CF0C3F5D5A86AFF3CA12020C923ADC6C92"
+    },
+    {
+        "id": 5,
+        "avatar": "assets/images/mulher.png",
+        "nome": "Gioconda Garcia",
+        "email": "giogarcia@gmail.com",
+        "senha": "8D969EEF6ECAD3C29A3A629280E686CF0C3F5D5A86AFF3CA12020C923ADC6C92"
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "idEstabelecimento": "fejau89321n93u29r390",
+        "idCliente": "ehauhe12324fea",
+        "nomeCliente": "Ana Paula",
+        "localRetiradaEncomenda": {
+            "endereco": "Rua Teste, 15. Centro.",
+            "localizacao": {
+            "latitude": -14.25635,
+            "longitude": -40.54445
+            }
+        },
+        "localEntregaEncomenda": {
+            "endereco": "cscc",
+            "localizacao": {
+            "latitude": -14.25645,
+            "longitude": -40.54435
+            }
+        },
+        "dataCriacao": "10/10/2023 15:56:23",
+        "dataEntrega": null,
+        "idMotoboy": null,
+        "status": "PENDENTE",
+        "valor": "R$ 10,50"
+    },
+    {
+        "idEstabelecimento": "fheuahe73y1j01jrioj20",
+        "idCliente": "fjefu9320u38203ur0",
+        "nomeCliente": "João Gomes",
+        "localRetiradaEncomenda": {
+            "endereco": "Rua das Canetas, 99. Recreio.",
+            "localizacao": {
+            "latitude": -14.25625,
+            "longitude": -40.56445
+            }
+        },
+        "localEntregaEncomenda": {
+            "endereco": "",
+            "localizacao": {
+            "latitude": -14.25645,
+            "longitude": -40.54435
+            }
+        },
+        "dataCriacao": "10/10/2023 13:12:23",
+        "dataEntrega": null,
+        "idMotoboy": null,
+        "status": "PENDENTE",
+        "valor": "R$ 6,50"
+    },
+    {
+        "idEstabelecimento": "392u049823040fj",
+        "idCliente": "ejahefiuaheuioo",
+        "nomeCliente": "Osvaldo Torres",
+        "localRetiradaEncomenda": {
+            "endereco": "Rua Enriqueta Prates, 200. Brasil.",
+            "localizacao": {
+            "latitude": -14.25630,
+            "longitude": -40.54435
+            }
+        },
+        "localEntregaEncomenda": {
+            "endereco": "",
+            "localizacao": {
+            "latitude": -14.25645,
+            "longitude": -40.54435
+            }
+        },
+        "dataCriacao": "10/10/2023 17:00:02",
+        "dataEntrega": null,
+        "idMotoboy": null,
+        "status": "PENDENTE",
+        "valor": "R$ 10,50"
+    }
+]

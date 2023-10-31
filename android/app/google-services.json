@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "447970992345",
+    "project_id": "bydeliverymovel",
+    "storage_bucket": "bydeliverymovel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447970992345:android:cd85867b7ed92184669ec8",
+        "android_client_info": {
+          "package_name": "com.example.bydelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447970992345-ugsjslg1m10a7edc44up7jgnsq226dbd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjoDjZvObhn6UQ7jV2OHQhXiImM_RRafw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447970992345-ugsjslg1m10a7edc44up7jgnsq226dbd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "447970992345-3b4ubnrca0qjcnforeefte2nk1s80sp8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bYDelivery.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
