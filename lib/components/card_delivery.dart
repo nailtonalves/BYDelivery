@@ -123,7 +123,7 @@ class CardDelivey extends StatelessWidget {
                                 alignment: Alignment.center,
                                 children: [
                                   CircularProgressIndicator(
-                                    value: countdown / 15,
+                                    value: 1 - (countdown / 15),
                                     color: isRed ? Colors.red : Colors.green,
                                   ),
                                   countdown > 0

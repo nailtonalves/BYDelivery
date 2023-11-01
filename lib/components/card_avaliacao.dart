@@ -15,7 +15,7 @@ class _CardAvaliacaoState extends State<CardAvaliacao> {
   Widget build(BuildContext context) {
     return Card(
         child: Padding(
-      padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+      padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

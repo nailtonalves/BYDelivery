@@ -1,19 +1,18 @@
 import 'dart:convert';
 
 import 'package:bydelivery/components/card_avaliacao.dart';
-import 'package:bydelivery/components/loanding_screen.dart';
 import 'package:bydelivery/models/avaliacao.dart';
 import 'package:bydelivery/models/usuario.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:flat_list/flat_list.dart';
 
 // ignore: must_be_immutable
 class FeedsView extends StatefulWidget {
   int idAvaliacao = 5;
   Usuario? usuario;
 
-  final List<Avaliacao> _avaliacoes = [];
   FeedsView({super.key, this.usuario});
 
   @override
@@ -21,34 +20,21 @@ class FeedsView extends StatefulWidget {
 }
 
 class _FeedsViewState extends State<FeedsView> {
-  double _rating = 0;
-  double newRating = 0.0;
   int page = 1;
   int pageSize = 5;
-  bool isLoading = false;
 
-  late ScrollController scrollController;
+  bool isLoading = true;
+
+  List<Avaliacao> _avaliacoes = [];
 
   final TextEditingController commentController = TextEditingController();
+
+  double _rating = 0.0;
 
   @override
   void initState() {
     super.initState();
     loadAvaliacoes();
-    scrollController = ScrollController()..addListener(_scrollListener);
-  }
-
-  @override
-  void dispose() {
-    scrollController.removeListener(_scrollListener);
-    super.dispose();
-  }
-
-  void _scrollListener() {
-    print(scrollController.position.extentAfter);
-    if (scrollController.position.extentAfter < pageSize) {
-      loadAvaliacoes();
-    }
   }
 
   // Método para carregar avaliações a partir de um arquivo JSON
@@ -56,54 +42,99 @@ class _FeedsViewState extends State<FeedsView> {
     setState(() {
       isLoading = true; // Mostrar a tela de carregamento
     });
-    await Future.delayed(const Duration(seconds: 1));
-    // Simule o carregamento do JSON a partir de um arquivo
-    final jsonString = await rootBundle.loadString('assets/json/feeds.json');
-    final jsonData = json.decode(jsonString.toString());
+    try {
+      await Future.delayed(const Duration(seconds: 1));
+      // Simule o carregamento do JSON a partir de um arquivo
+      final jsonString = await rootBundle.loadString('assets/json/feeds.json');
+      final jsonData = json.decode(jsonString.toString());
 
-    List<Avaliacao> novasAvaliacoes = List.from(
-      jsonData.map((avaliacao) => Avaliacao.fromJson(avaliacao)),
-    );
+      List<Avaliacao> novasAvaliacoes = List.from(
+        jsonData.map((avaliacao) => Avaliacao.fromJson(avaliacao)),
+      );
 
-    int totalReviewsLoading = page * pageSize;
+      int totalReviewsLoading = page * pageSize;
 
-    if (novasAvaliacoes.length > totalReviewsLoading) {
-      novasAvaliacoes = novasAvaliacoes.sublist(0, totalReviewsLoading);
+      if (totalReviewsLoading > novasAvaliacoes.length) {
+        totalReviewsLoading = novasAvaliacoes.length;
+      }
+
+      if (_avaliacoes.length != novasAvaliacoes.length) {
+        novasAvaliacoes =
+            novasAvaliacoes.sublist(_avaliacoes.length, totalReviewsLoading);
+        page += 1;
+        _avaliacoes.addAll(novasAvaliacoes);
+        // ignore: avoid_print
+        print("Total feeds: ${_avaliacoes.length}");
+      } else {
+        // ignore: avoid_print
+        print("Não há mais Feeds.");
+      }
+    } catch (e) {
+      setState(() {
+        isLoading = false; // Ocultar a tela de carregamento
+      });
     }
     setState(() {
-      page += 1;
-      widget._avaliacoes.addAll(novasAvaliacoes);
       isLoading = false; // Ocultar a tela de carregamento
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // widget.usuario = Usuario();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
           title: const Text('Avaliações'),
         ),
-        body: Stack(
-          children: [
-            Column(
-              children: [
-                if (widget.usuario != null) componenteAvaliacao(),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: widget._avaliacoes.length,
-                    itemBuilder: (context, index) {
-                      final review = widget._avaliacoes[index];
-                      return CardAvaliacao(review);
-                    },
-                  ),
-                ),
-              ],
-            ),
-            if (isLoading) const LoadingScreen()
-          ],
-        ));
+        body: FlatList(
+            onRefresh: () async {
+              setState(() {
+                isLoading = true;
+                _avaliacoes = [];
+              });
+              loadAvaliacoes();
+              Future.delayed(const Duration(seconds: 2));
+            },
+            listEmptyWidget: _avaliacoes.isEmpty && !isLoading
+                ? const Padding(
+                    padding: EdgeInsets.fromLTRB(20, 30, 20, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: EdgeInsets.all(30),
+                          color: Colors.amber,
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(30, 40, 30, 40),
+                            child: Text("Não foram encontradas avaliações."),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                : const SizedBox(),
+            listHeaderWidget: widget.usuario != null
+                ? componenteAvaliacao()
+                : isLoading
+                    ? const SizedBox()
+                    : const Padding(
+                        padding: EdgeInsets.fromLTRB(10, 15, 10, 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Faça login para enviar uma avaliação")
+                          ],
+                        )),
+            // controller: scrollController,
+            loading: isLoading,
+            data: _avaliacoes,
+            onEndReached: () {
+              loadAvaliacoes();
+            },
+            buildItem: (item, index) {
+              final review = _avaliacoes[index];
+              return CardAvaliacao(review);
+            }));
   }
 
   Widget componenteAvaliacao() {
@@ -175,8 +206,8 @@ class _FeedsViewState extends State<FeedsView> {
         commentController.text.trim(),
         formattedDate);
     setState(() {
-      widget._avaliacoes.add(avaliacao);
-      widget._avaliacoes.sort((a, b) => b.id.compareTo(a.id));
+      _avaliacoes.add(avaliacao);
+      _avaliacoes.sort((a, b) => b.id.compareTo(a.id));
       commentController.clear();
       _rating = 0.0;
     });
