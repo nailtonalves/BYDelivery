@@ -44,8 +44,8 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAOVzmh_jcGAC2-4xmk8KomDKX4WTUb3ko',
-    appId: '1:447970992345:web:f43720aafcd3b13a669ec8',
+    apiKey: 'API_KEY',
+    appId: 'APP_ID',
     messagingSenderId: '447970992345',
     projectId: 'bydeliverymovel',
     authDomain: 'bydeliverymovel.firebaseapp.com',
@@ -54,16 +54,16 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCjoDjZvObhn6UQ7jV2OHQhXiImM_RRafw',
-    appId: '1:447970992345:android:cd85867b7ed92184669ec8',
+    apiKey: 'API_KEY',
+    appId: 'APP_ID',
     messagingSenderId: '447970992345',
     projectId: 'bydeliverymovel',
     storageBucket: 'bydeliverymovel.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAqmgyzSrH7ZgfJowxDxmmdY5QLPGCe85k',
-    appId: '1:447970992345:ios:9aa205d27f059d0a669ec8',
+    apiKey: 'API_KEY',
+    appId: 'APP_ID',
     messagingSenderId: '447970992345',
     projectId: 'bydeliverymovel',
     storageBucket: 'bydeliverymovel.appspot.com',
@@ -72,8 +72,8 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAqmgyzSrH7ZgfJowxDxmmdY5QLPGCe85k',
-    appId: '1:447970992345:ios:05dee1e39da5aa51669ec8',
+     apiKey: 'API_KEY',
+    appId: 'APP_ID',
     messagingSenderId: '447970992345',
     projectId: 'bydeliverymovel',
     storageBucket: 'bydeliverymovel.appspot.com',
